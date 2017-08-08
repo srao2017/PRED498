@@ -1,0 +1,85 @@
+
+dest: sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/pzpass
+
+Welcome to Cloud Shell! Type "help" to get started.
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ TUTORIALDIR=~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ git clone https://github.com/GoogleCloudPlatform/python-docs-samples $TUTORIALDIR
+Cloning into '/home/sanj_rao/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45'...
+remote: Counting objects: 11379, done.
+remote: Total 11379 (delta 0), reused 1 (delta 0), pack-reused 11378
+Receiving objects: 100% (11379/11379), 3.24 MiB | 0 bytes/s, done.
+Resolving deltas: 100% (6036/6036), done.
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ 
+sanj_rao@pzpassv1:~$ cd $TUTORIALDIR/appengine/standard/hello_world
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ cat main.py
+# Copyright 2016 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import webapp2
+
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.write('Hello, World!')
+
+
+app = webapp2.WSGIApplication([
+app = webapp2.WSGIApplication([
+], debug=True)
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ cat app.yaml
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: main.app
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ dev_appserver.py $PWD
+INFO     2017-07-13 02:52:42,852 devappserver2.py:116] Skipping SDK update check.
+        self.response.write('Hello, World!')
+WARNING  2017-07-13 02:52:43,253 simple_search_stub.py:1169] Could not read search indexes from /tmp/appengine.None.sanj_rao/search_indexes
+INFO     2017-07-13 02:52:43,254 api_server.py:312] Starting API server at: http://0.0.0.0:44718
+WARNING  2017-07-13 02:52:43,255 dispatcher.py:287] Your python27 micro version is below 2.7.12, our current production version.
+INFO     2017-07-13 02:52:43,257 dispatcher.py:226] Starting module "default" running at: http://0.0.0.0:8080
+INFO     2017-07-13 02:52:43,258 admin_server.py:116] Starting admin server at: http://0.0.0.0:8000
+INFO     2017-07-13 02:53:17,549 module.py:832] default: "GET /?authuser=1 HTTP/1.0" 200 13
+INFO     2017-07-13 02:53:17,875 module.py:832] default: "GET /favicon.ico HTTP/1.0" 404 154
+INFO     2017-07-13 02:53:18,012 module.py:832] default: "GET /favicon.ico HTTP/1.0" 404 154
+^CINFO     2017-07-13 02:53:41,823 shutdown.py:45] Shutting down.
+INFO     2017-07-13 02:53:41,823 api_server.py:938] Applying all pending transactions and saving the datastore
+INFO     2017-07-13 02:53:41,824 api_server.py:941] Saving search indexes
+sanj_rao@pzpassv1:~/src/pzpassv1/python_gae_quickstart-2017-07-12-22-45/appengine/standard/hello_world$ 
+
+Deploying:
+https://cloud.google.com/appengine/docs/standard/python/tools/uploadinganapp
+command: gcloud deploy app.yaml index.yaml
+
+Access URL to store and get tags and values:
+https://pzpassv1.appspot.com/
+Admin URL:
+https://pzpassv1.appspot.com/?user=sanjay
